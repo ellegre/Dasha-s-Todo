@@ -1,6 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import Localbase from "localbase";
+
+let db = new Localbase('db')
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -13,37 +17,31 @@ export default new Vuex.Store({
     },
     sorting: false,
     tasks: [
-      { 
-        id: 1,
-        title: 'Wake up',
-        done: false,
-        dueDate: '2020-10-17' 
-      },
-      { 
-        id: 2,
-        title: 'Get bananas', 
-        done: false,
-        dueDate: '2020-10-16' 
-      },
-      { 
-        id: 3, 
-        title: 'Eat bananas', 
-        done: false,
-        dueDate: null
-      },
+      // { 
+      //   id: 1,
+      //   title: 'Wake up',
+      //   done: false,
+      //   dueDate: '2020-10-17' 
+      // },
+      // { 
+      //   id: 2,
+      //   title: 'Get bananas', 
+      //   done: false,
+      //   dueDate: '2020-10-16' 
+      // },
+      // { 
+      //   id: 3, 
+      //   title: 'Eat bananas', 
+      //   done: false,
+      //   dueDate: null
+      //},
     ]
   },
   mutations: {
     setSearch(state, value) {
       state.search = value
     },
-    addTask(state, newTaskTitle) {
-      let newTask = {
-        id: Date.now(),
-        title: newTaskTitle,
-        done: false,
-        dueDate: null
-      }
+    addTask(state, newTask) {
       state.tasks.push(newTask)
     },
     doneTask(state, id) {
@@ -84,8 +82,16 @@ export default new Vuex.Store({
   },
   actions: {
     addTask({ commit}, newTaskTitle) {
-      commit('addTask', newTaskTitle)
-      commit('showSnackbar', 'Task added!')
+      let newTask = {
+        id: Date.now(),
+        title: newTaskTitle,
+        done: false,
+        dueDate: null
+      }
+      db.collection('tasks').add(newTask).then(() => {
+        commit('addTask', newTask)
+        commit('showSnackbar', 'Task added!')
+      })     
     },
     deleteTask({ commit}, id) {
       commit('deleteTask', id)
