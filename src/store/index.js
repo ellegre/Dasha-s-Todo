@@ -4,6 +4,7 @@ import Vuex from "vuex";
 import Localbase from "localbase";
 
 let db = new Localbase('db')
+db.config.debug = false
 
 Vue.use(Vuex);
 
@@ -102,8 +103,10 @@ export default new Vuex.Store({
       })     
     },
     deleteTask({ commit}, id) {
-      commit('deleteTask', id)
-      commit('showSnackbar', 'Task deleted!')
+      db.collection('tasks').doc({ id: id}).delete().then(() => {
+        commit('deleteTask', id)
+        commit('showSnackbar', 'Task deleted!')
+      })      
     },
     updateTaskTitle({ commit }, payload) {
       db.collection('tasks').doc({ id: payload.id}).update({
@@ -114,8 +117,16 @@ export default new Vuex.Store({
       })      
     },
     updateTaskDueDate({ commit }, payload) {
-      commit('updateTaskDueDate', payload)
-      commit('showSnackbar', 'Date updated!')
+      db.collection('tasks').doc({ id: payload.id}).update({
+        dueDate: payload.dueDate
+      }).then(() => {
+        commit('updateTaskDueDate', payload)
+        commit('showSnackbar', 'Date updated!')
+      })            
+    },
+    setTasks({ commit }, tasks) {
+      db.collection('tasks').set(tasks)
+        commit('setTasks', tasks)    
     },
     getTasks({ commit }) {
       db.collection('tasks').get().then(tasks => {
