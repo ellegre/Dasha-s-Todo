@@ -78,7 +78,13 @@ export default {
                 title: 'Sorting',
                 icon: 'mdi-drag-variant',
                 click() {
-                   this.$store.commit('toggleSorting')
+                    if (!this.$store.state.search) {
+                      this.$store.commit('toggleSorting')
+                    }
+                    else {
+                        this.$store.commit('showSnackbar', 'How DARE you try to sort while searching!')
+                    }
+                   
                 }
             },
         ]

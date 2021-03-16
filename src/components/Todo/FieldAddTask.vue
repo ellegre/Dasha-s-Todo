@@ -2,15 +2,14 @@
   <v-text-field
       v-model="newTaskTitle"
       @keyup.enter="addTask"
-      class="pa-3"
+      class="field-add-task pa-3"
       outlined
-      label="Add task"
+      placeholder="Add task"
       hide-details
       clearable
     >
       <template v-slot:append>
         <v-icon @click="addTask"
-        color="primary"
         :disabled="newTaskTitleInvalid"
         >
           mdi-plus
@@ -41,3 +40,10 @@ data () {
   }
 }
 </script>
+<style lang="sass">
+  .field-add-task.v-input--is-focused
+    .v-input__control
+      background: #022A2F 
+    
+
+</style>

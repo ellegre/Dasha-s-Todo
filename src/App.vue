@@ -46,7 +46,7 @@
       dark
       src="night.jpg"
       prominent
-      height="170"
+      :height="$route.path === '/' ? '230' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -65,6 +65,9 @@
         </v-row>
         <v-row>
           <live-date-time />
+        </v-row>
+        <v-row v-if="$route.path === '/'">
+           <field-add-task />
         </v-row>
       </v-container>
     </v-app-bar>
@@ -91,6 +94,7 @@
       'snackbar': require('@/components/Global/Snackbar.vue').default,
       'search': require('@/components/Tools/Search.vue').default,
       'live-date-time': require('@/components/Tools/LiveDateTime.vue').default,
+      'field-add-task': require('@/components/Todo/FieldAddTask.vue').default
     }
   }
 </script>
@@ -99,4 +103,6 @@
   font-family: 'Tangerine', cursive !important
 .header-container
   max-width: none
+
+
 </style>
