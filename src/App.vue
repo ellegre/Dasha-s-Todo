@@ -46,6 +46,7 @@
       dark
       src="night.jpg"
       prominent
+      hide-on-scroll
       :height="$route.path === '/' ? '230' : '170'"
     >
       <template v-slot:img="{ props }">

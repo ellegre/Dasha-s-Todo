@@ -2,7 +2,7 @@
     <div>
         <v-list-item 
         @click="$store.dispatch('doneTask',task.id)"
-        :class="{'teal lighten-4': task.done}"
+        :class="{'grey lighten-4': task.done}"
         :ripple="false"
         class="white"
         >
