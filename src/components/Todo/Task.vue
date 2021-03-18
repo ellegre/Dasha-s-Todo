@@ -1,7 +1,6 @@
 <template>
     <div>
         <v-list-item 
-        @click="$store.dispatch('doneTask',task.id)"
         :class="{'grey lighten-4': task.done}"
         :ripple="false"
         class="white"
@@ -9,13 +8,14 @@
             <template v-slot:default>
             <v-list-item-action>
                 <v-checkbox
+                @click="$store.dispatch('doneTask',task.id)"
                 :input-value="task.done"
                 color="primary"
                 ></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
-                <v-list-item-title :class="{'text-decoration-line-through': task.done }">{{ task.title }}</v-list-item-title>
+                <v-list-item-title class="text-wrap" :class="{'text-decoration-line-through': task.done }">{{ task.title }}</v-list-item-title>
             </v-list-item-content>
 
             <v-list-item-action v-if="task.dueDate">

@@ -1,8 +1,10 @@
 <template>
   <v-snackbar
         v-model="$store.state.snackbar.show"
-        shaped 
-        color="teal lighten-4"
+        flat
+        light
+        class="mx 2"
+        color="grey lighten-4"
         elevation="24"
       >
         {{ $store.state.snackbar.text }}
