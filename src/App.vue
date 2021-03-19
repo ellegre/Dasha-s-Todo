@@ -2,13 +2,14 @@
   <v-app id="inspire">
     <v-navigation-drawer
       v-model="drawer"
-      :mobale-breakpoint="768"
+      :mobile-breakpoint="768"
       app
+      class="text-center"
     >
       <v-img
       class="pa-3"
         src="texture.jpg"
-        height="170"
+        :height="$route.path === '/' ? '230' : '170'"
       >
         <v-avatar size="120">
           <img
@@ -17,6 +18,7 @@
           >
         </v-avatar>
         <div class="avatar-name text-h4">Dasha</div>
+        <div class="font-weight-thin">An artist</div>
       </v-img>
       <v-list
         dense
