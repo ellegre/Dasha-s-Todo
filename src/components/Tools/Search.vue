@@ -12,7 +12,6 @@
     filled
     dense
     clearable
-    maxlength="70"
   ></v-text-field>
 </template>
 

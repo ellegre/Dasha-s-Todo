@@ -58,7 +58,7 @@
       </template>
 
       <v-container class="header-container pa-0">
-        <v-row>
+        <v-row class="d-flex flex-nowrap">
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer />
           <search />
