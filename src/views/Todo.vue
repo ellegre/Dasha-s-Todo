@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-   
+  <div class="home">   
     <list-tasks v-if="$store.state.tasks.length" />   
     <no-tasks v-else />
     <button-done-sorting 
