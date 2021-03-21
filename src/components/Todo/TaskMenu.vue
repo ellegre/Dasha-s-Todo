@@ -75,7 +75,7 @@ export default {
                 }
             },
             { 
-                title: 'Sorting',
+                title: 'Sort',
                 icon: 'mdi-drag-variant',
                 click() {
                     if (!this.$store.state.search) {

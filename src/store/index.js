@@ -13,7 +13,7 @@ export default new Vuex.Store({
     appTitle: process.env.VUE_APP_TITLE,
     search: null,
     snackbar: {
-      show: true,
+      show: false,
       text: ''
     },
     sorting: false,
