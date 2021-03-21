@@ -9,7 +9,7 @@
       <v-img
       class="pa-3"
         src="texture.jpg"
-        :height="$route.path === '/' ? '230' : '170'"
+        :height="$route.path === '/' ? '205' : '170'"
       >
         <v-avatar size="120">
           <img
@@ -49,7 +49,7 @@
       src="night.jpg"
       prominent
       hide-on-scroll
-      :height="$route.path === '/' ? '230' : '170'"
+      :height="$route.path === '/' ? '205' : '170'"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -75,8 +75,10 @@
       </v-container>
     </v-app-bar>
     <v-main>
-      <router-view />
-      <snackbar />
+      <v-container class="pa-0">
+        <router-view />
+        <snackbar />
+      </v-container>      
     </v-main>
   </v-app>
 </template>

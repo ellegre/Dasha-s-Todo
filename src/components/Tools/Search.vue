@@ -12,6 +12,7 @@
     filled
     dense
     clearable
+    hide-details
   ></v-text-field>
 </template>
 
