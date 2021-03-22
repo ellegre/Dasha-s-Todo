@@ -20,12 +20,6 @@
   </v-snackbar>  
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style lang="sass">
   div.v-snack:not(.v-snack--absolute) 
     height: 100%

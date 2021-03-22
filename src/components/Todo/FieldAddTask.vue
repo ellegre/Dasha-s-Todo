@@ -9,8 +9,9 @@
       clearable
     >
       <template v-slot:append>
-        <v-icon @click="addTask"
-        :disabled="newTaskTitleInvalid"
+        <v-icon 
+          @click="addTask"
+          :disabled="newTaskTitleInvalid"
         >
           mdi-plus
         </v-icon>
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-data () {
+  data () {
     return {
       newTaskTitle: '',
     }
@@ -44,6 +45,4 @@ data () {
   .field-add-task.v-input--is-focused
     .v-input__control
       background: #022A2F 
-    
-
 </style>

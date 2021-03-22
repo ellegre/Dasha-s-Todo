@@ -75,10 +75,8 @@
       </v-container>
     </v-app-bar>
     <v-main>
-      <v-container class="pa-0">
-        <router-view />
-        <snackbar />
-      </v-container>      
+      <router-view />
+      <snackbar />    
     </v-main>
   </v-app>
 </template>
@@ -104,10 +102,8 @@
   }
 </script>
 <style lang="sass" scoped>
-.app-title,  .avatar-name
-  font-family: 'Tangerine', cursive !important
-.header-container
-  max-width: none
-
-
+  .app-title,  .avatar-name
+    font-family: 'Tangerine', cursive !important
+  .header-container
+    max-width: none
 </style>

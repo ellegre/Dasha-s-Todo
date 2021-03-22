@@ -13,7 +13,8 @@
     dense
     clearable
     hide-details
-  ></v-text-field>
+  >
+  </v-text-field>
 </template>
 
 <script>
